@@ -1,0 +1,95 @@
+.drawer-content {
+  background-color: #ffa500 !important; 
+  padding: 16px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.drawer-content .MuiListItemText-primary {
+  color: black !important;
+  font-weight: bold;
+}
+
+.drawer-header {
+  background-color: #ffa500 !important; 
+}
+
+.drawer-item .MuiSvgIcon-root {
+  fill: black !important; 
+}
+
+.sign-out-button {
+  position: absolute;
+  bottom: -500px;
+  width: calc(80% - 32px);
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.user-info-text {
+  margin-left: 16px;
+}
+
+.user-name {
+  font-weight: bold;
+}
+.avatar-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  cursor: pointer;
+  background-size: cover;
+  background-position: center;
+  border: 2px solid #fff;
+  position: relative;
+}
+
+.avatar-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  cursor: pointer;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar-image img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.avatar label {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.avatar label button {
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: #fff;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.avatar label button:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
