@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
-import { getDoc, doc, updateDoc, setDoc } from 'firebase/firestore'; // Updated imports
+import { getDoc, doc, updateDoc, setDoc } from 'firebase/firestore';
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage'; 
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import List from '@material-ui/core/List';
@@ -20,9 +20,11 @@ import './navDrawer.css';
 const NavDrawer = ({ open, onClose }) => {
   const auth = getAuth();
   const navigate = useNavigate();
+  const location = useLocation();
   const [userData, setUserData] = useState(null);
   const [photoUpload, setPhotoUpload] = useState(null);
   const [showUploadButton, setShowUploadButton] = useState(false);
+  const [activeItem, setActiveItem] = useState(null);
 
   const handleSignOut = () => {
     navigate('/');
@@ -84,6 +86,22 @@ const NavDrawer = ({ open, onClose }) => {
     return () => unsubscribe();
   }, [auth]);
 
+  useEffect(() => {
+    // Set the active item based on the current location
+    if (location.pathname === '/home') {
+      setActiveItem('home');
+    } else if (location.pathname === '/dashboard') {
+      setActiveItem('dashboard');
+    } else {
+      setActiveItem(null);
+    }
+  }, [location]);
+
+  const handleMenuItemClick = (item) => {
+    setActiveItem(item);
+    onClose(); // Close the drawer when a link is clicked
+  };
+
   return (
     <SwipeableDrawer anchor="left" open={open} onClose={onClose}>
       <div className="drawer-content" role="presentation">
@@ -124,7 +142,11 @@ const NavDrawer = ({ open, onClose }) => {
           </div>
         </div>
         <List>
-          <ListItem button className="drawer-item">
+          <ListItem
+            button
+            className={`drawer-item ${activeItem === 'home' ? 'active' : ''}`}
+            onClick={() => handleMenuItemClick('home')}
+          >
             <ListItemIcon>
               <HomeIcon />
             </ListItemIcon>
@@ -132,11 +154,17 @@ const NavDrawer = ({ open, onClose }) => {
               <ListItemText primary="Home" className="drawer-item-text" />
             </Link>
           </ListItem>
-          <ListItem button className="drawer-item">
+          <ListItem
+            button
+            className={`drawer-item ${activeItem === 'dashboard' ? 'active' : ''}`}
+            onClick={() => handleMenuItemClick('dashboard')}
+          >
             <ListItemIcon>
               <DashboardIcon />
             </ListItemIcon>
-            <ListItemText primary="Dashboard" className="drawer-item-text" />
+            <Link to="/dashboard" className="drawer-link">
+              <ListItemText primary="Dashboard" className="drawer-item-text" />
+            </Link>
           </ListItem>
         </List>
         <ListItem button className="drawer-item sign-out-button" onClick={handleSignOut}>

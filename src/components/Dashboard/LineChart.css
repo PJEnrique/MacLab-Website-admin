@@ -1,0 +1,11 @@
+/* Add your CSS styles for the LineChart component */
+
+/* Style for the x-axis labels (text color: white) */
+.apexcharts-xaxis-label {
+  fill: white !important;
+}
+
+/* Style for the line (line color: orange) */
+.apexcharts-line-series path {
+  stroke: orange !important;
+}

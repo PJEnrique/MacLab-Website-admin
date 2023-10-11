@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-d
 import NavDrawer from './components/navDrawer';
 import Home from './components/Home/Home';
 import LoginSecurityAdmin from './components/SecurityAdminLogin/LoginSecurityAdmin'; 
+import Dashboard from './components/Dashboard/Dashboard';
 import AdminForm from './components/SecurityAdminLogin/AdminForm.js'; // Import the AdminForm component
 import './components/navDrawer.css';
 import IconButton from '@material-ui/core/IconButton';
@@ -35,11 +36,18 @@ const App = () => {
           </IconButton>
           <NavDrawer open={drawerOpen} onClose={() => setDrawerOpen(false)} />
           <Routes>
-            <Route path="/home" element={<Home />} />
-            <Route path="/" element={<LoginSecurityAdmin />} />
-            <Route path="/signup" element={<AdminForm />} />
-            <Route path="*" element={<Navigate to="/" />} />
-          </Routes>
+  <Route
+    path="/home"
+    element={<Home drawerOpen={drawerOpen} setDrawerOpen={setDrawerOpen} />}
+  />
+  <Route
+    path="/dashboard"
+    element={<Dashboard drawerOpen={drawerOpen} setDrawerOpen={setDrawerOpen} />}
+  />
+  <Route path="/" element={<LoginSecurityAdmin />} />
+  <Route path="/signup" element={<AdminForm />} />
+  <Route path="*" element={<Navigate to="/" />} />
+</Routes>
         </>
       )}
     </Router>

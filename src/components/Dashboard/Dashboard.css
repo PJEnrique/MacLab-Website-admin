@@ -1,0 +1,9 @@
+.dashboard-container {
+  padding: 20px;
+}
+
+.menu-icon-container {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}

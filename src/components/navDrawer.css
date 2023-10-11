@@ -1,7 +1,7 @@
 .drawer-content {
-  background-color: #ffa500 !important; 
+  background-color: #ffa500 !important;
   padding: 16px;
-  height: 100%;
+  height: 100vh; 
   display: flex;
   flex-direction: column;
 }
@@ -12,13 +12,38 @@
 }
 
 .drawer-header {
-  background-color: #ffa500 !important; 
+  background-color: #ffa500 !important;
 }
 
 .drawer-item .MuiSvgIcon-root {
-  fill: black !important; 
+  fill: black !important;
 }
 
+.drawer-item {
+  transition: background-color 0.3s;
+}
+
+.drawer-item:hover {
+  background-color: orange;
+}
+
+.drawer-item.active {
+  background: linear-gradient(45deg, #FFDD43, #ffa500, #101820);
+  background-size: 200% 200%;
+  animation: gradientAnimation 5s ease infinite;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
 .sign-out-button {
   position: absolute;
   bottom: -500px;
@@ -38,6 +63,7 @@
 .user-name {
   font-weight: bold;
 }
+
 .avatar-container {
   display: flex;
   flex-direction: column;
