@@ -7,3 +7,32 @@
   top: 10px;
   left: 10px;
 }
+
+.welcome-text {
+  margin-bottom: 20px;
+}
+
+.user-info-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.user-info-table th, .user-info-table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+
+.user-info-table th {
+  background-color: #ffa500;
+}
+
+.user-row:nth-child(even) {
+  background-color: #666;
+}
+
+.user-row:hover {
+  background-color: #ffa60057;
+}
+

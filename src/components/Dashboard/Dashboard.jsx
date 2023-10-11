@@ -30,18 +30,28 @@ const Dashboard = () => {
         </IconButton>
       </div>
       <NavDrawer open={drawerOpen} onClose={() => setDrawerOpen(false)} />
-      <h1>Welcome to Your Dashboard</h1>
-      <div className="user-info">
-        {users.map((user, index) => (
-          <div key={index}>
-            <p>displayName: {user.displayName}</p>
-            <p>StudentNo: {user.studentNo}</p>
-            <p>Department: {user.department}</p>
-            <p>yearGrade: {user.yearGrade}</p>
-          </div>
-        ))}
-      </div>
-      </div>
+      <h1 className="welcome-text">Welcome to Your Dashboard</h1>
+      <table className="user-info-table">
+        <thead>
+          <tr>
+            <th>Display Name</th>
+            <th>Student No</th>
+            <th>Department</th>
+            <th>Year Grade</th>
+          </tr>
+        </thead>
+        <tbody>
+          {users.map((user, index) => (
+            <tr key={index} className="user-row">
+              <td>{user.displayName}</td>
+              <td>{user.studentNo}</td>
+              <td>{user.department}</td>
+              <td>{user.yearGrade}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 };
 
