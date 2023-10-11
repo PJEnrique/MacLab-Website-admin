@@ -1,3 +1,8 @@
+.menu-icon-container {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+}
 .home-container {
   padding: 20px;
 }
