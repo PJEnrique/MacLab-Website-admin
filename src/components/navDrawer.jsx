@@ -109,6 +109,7 @@ const NavDrawer = ({ open, onClose }) => {
           <IconButton onClick={onClose}>
             <CloseIcon />
           </IconButton>
+          <div className="logo">FortiMac</div>
         </div>
         <div className="avatar-container">
           <label htmlFor="photo-upload" className="avatar">

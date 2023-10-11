@@ -28,7 +28,7 @@
 }
 
 .drawer-item.active {
-  background: linear-gradient(45deg, #FFDD43, #ffa500, #101820);
+  background: linear-gradient(45deg, #ffdd43, #b67703, #101820);
   background-size: 200% 200%;
   animation: gradientAnimation 5s ease infinite;
 }
@@ -46,7 +46,7 @@
 }
 .sign-out-button {
   position: absolute;
-  bottom: -500px;
+  bottom: -450px;
   width: calc(80% - 32px);
 }
 
@@ -118,4 +118,29 @@
 
 .avatar label button:hover {
   background: rgba(0, 0, 0, 0.7);
+}
+.logo {
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  display: inline-block;
+  margin-left: 16px;
+  animation: gradientAnimation 4s ease infinite;
+  background-image: linear-gradient(45deg, #f7cb0b, #6e4c0b, #101820);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
