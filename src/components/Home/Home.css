@@ -3,16 +3,70 @@
   top: 10px;
   left: 10px;
 }
+
 .home-container {
   padding: 20px;
 }
 
-.home-container h1 {
+.home-container h2 {
   font-size: 24px;
   margin-bottom: 10px;
 }
 
-.home-container p {
-  font-size: 16px;
-  margin-bottom: 8px;
+.attendance-table-container {
+  max-height: 400px;
+  overflow: auto; /* Use overflow: auto to make the table scrollable */
+}
+
+.attendance-table {
+  width: 100%;
+}
+
+.attendance-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.attendance-table th, .attendance-table td {
+  border: 1px solid white;
+  padding: 8px;
+  text-align: left;
+}
+
+.attendance-table th {
+  background-color: orange;
+}
+
+.attendance-table tr:hover {
+  background-color: lightgray;
+}
+.imac-data {
+  margin-top: 20px;
+  max-height: 400px;
+  overflow: auto;
+  background-color: lightgoldenrodyellow; /* Background color */
+  padding: 10px;
+  border: 1px solid gray; /* Border color */
+  border-radius: 5px;
+}
+
+.imac-data table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.imac-data th, .imac-data td {
+  border: 1px solid orange; /* Border color */
+  padding: 8px;
+  text-align: left;
+  color: black; /* Text color */
+}
+
+.imac-data th {
+  background-color: orange;
+}
+
+.imac-data tr:hover {
+  background-color: gray; /* Light gray background on hover */
+  color: orange; /* Change text color on hover */
 }

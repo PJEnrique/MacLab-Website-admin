@@ -1,61 +1,50 @@
+require('dotenv').config();
+
 const express = require('express');
 const admin = require('firebase-admin');
 const serviceAccount = require('./src/components/config/maclab-auth-399711-firebase-adminsdk-sgs4f-db8b2a6c32.json');
-const verifyToken = require('./authMiddleware');
-const fs = require('fs');
-const jwt = require('jsonwebtoken');
+const cors = require('cors');
+const mongoose = require('mongoose');
+const MAC = require('./routes/MAC');
+const AttendanceRoute = require('./routes/AttendanceRoute');
+
+const app = express();
 
 // Initialize Firebase Admin SDK
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
 });
 
-const app = express();
+// Use CORS middleware
+app.use(cors({
+  origin: ['http://192.168.100.14:3000'],
+}));
 
-// Load the secret key
-const secretKey = fs.readFileSync('secret_key.txt', 'utf8').trim();
-console.log('Loaded secret key:', secretKey);
+// Connect to MongoDB
+mongoose.connect(process.env.MONGO_URL, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+const db = mongoose.connection;
 
-const generateToken = () => {
-  const tokenLength = 8;
-  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-  let token = '';
-
-  for (let i = 0; i < tokenLength; i++) {
-    const randomIndex = Math.floor(Math.random() * characters.length);
-    token += characters[randomIndex];
-  }
-
-  const generatedToken = jwt.sign({ token }, secretKey, { expiresIn: '2h' });
-  console.log('Generated token:', generatedToken);
-  return generatedToken;
-};
-
-// Protected route using the middleware
-app.get('/protectedroute', verifyToken, (req, res) => {
-  res.send('This is a protected route.');
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+db.once('open', () => {
+  console.log('Connected to MongoDB Atlas');
 });
 
-app.post('/authenticateAdmin', (req, res) => {
-  const { email, password } = req.body;
-
-  // Replace with your own admin authentication logic
-  if (email === 'pryllejay01@gmail.com' && password === 'Pryllejay01') {
-    const token = generateToken();
-    res.status(200).json({ token });
-  } else {
-    res.status(401).json({ error: 'Invalid credentials' });
-  }
+// Middleware to log requests
+app.use((req, res, next) => {
+  console.log(req.path, req.method);
+  next();
 });
 
-// Check if Firebase Admin SDK is initialized
-if (admin.apps.length > 0) {
-  console.log('Firebase Admin SDK is initialized.');
-} else {
-  console.log('Firebase Admin SDK is not initialized.');
-}
 
-app.listen(3500, () => {
-  console.log('Server is running on port 3500');
-  console.log('Listening Port in 3500');
+// Use the MAC and Attendance routes
+app.use('/mac', MAC);
+app.use('/attendance', AttendanceRoute);
+
+const PORT = process.env.PORT || 3600;
+
+app.listen(PORT, () => {
+  console.log(`Server is listening on port ${PORT}`);
 });
