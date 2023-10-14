@@ -86,6 +86,7 @@ const Dashboard = () => {
         <canvas ref={chartRef} style={{ width: '500px', height: '500px', border: '3px solid white' }} />
         <p>Total Users: {numUsers}</p>
       </div>
+      <div className="user-info-container">
       <table className="user-info-table">
         <thead>
           <tr>
@@ -106,6 +107,7 @@ const Dashboard = () => {
           ))}
         </tbody>
       </table>
+      </div>
     </div>
   );
 };

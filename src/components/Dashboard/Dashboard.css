@@ -54,13 +54,16 @@
 }
 
 
-.user-info-table {
-  width: 100%;
-  border-collapse: collapse;
-  max-height: 400px;
+.user-info-container {
+  max-height: 500px;
   overflow-y: auto;
   margin-bottom: 22px;
   margin-top: 30px;
+}
+
+.user-info-table {
+  width: 100%;
+  border-collapse: collapse;
 }
 
 .user-info-table th,
@@ -68,6 +71,12 @@
   border: 1px solid #ccc;
   padding: 10px;
   text-align: left;
+}
+.user-info-table thead {
+  position: sticky;
+  top: 0; 
+  background-color: #fff; 
+  z-index: 1; 
 }
 
 .user-info-table th {
