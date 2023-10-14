@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { createAdminAccount, designateAsAdmin } from '../config/firebase'; // Import designateAsAdmin function
+import { createAdminAccount, designateAsAdmin } from '../config/firebase'; 
 import { useNavigate } from 'react-router-dom';
 import './AdminForm.css';
 
@@ -7,22 +7,18 @@ const AdminForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
-  const [id, setId] = useState(''); // Add state for capturing ID
+  const [id, setId] = useState(''); 
   const navigate = useNavigate();
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Create the admin account
-      const user = await createAdminAccount(email, password, name, id); // Pass the email, name, and ID to the function
-
-      // Designate the user as an admin in Firestore
-      await designateAsAdmin(user.uid, email, name, id); // Pass email, name, and id to the function
+      const user = await createAdminAccount(email, password, name, id); 
+      await designateAsAdmin(user.uid, email, name, id); 
 
       console.log('Admin account created successfully!');
       alert('Admin account created successfully!');
 
-      // Redirect to the desired page after account creation
       navigate('/login');
     } catch (error) {
       console.error('Error creating admin account:', error.message);
@@ -41,6 +37,7 @@ const AdminForm = () => {
             id="id"
             value={id}
             onChange={(e) => setId(e.target.value)}
+            placeholder="Enter ID"
           />
         </div>
         <div className="form-group">
@@ -50,6 +47,7 @@ const AdminForm = () => {
             id="name"
             value={name}
             onChange={(e) => setName(e.target.value)}
+            placeholder="Enter Name"
           />
         </div>
         <div className="form-group">
@@ -59,6 +57,7 @@ const AdminForm = () => {
             id="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            placeholder="Enter Email"
           />
         </div>
         <div className="form-group">
@@ -68,6 +67,7 @@ const AdminForm = () => {
             id="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            placeholder="Enter Password"
           />
         </div>
         <button type="submit">Create Admin Account</button>

@@ -87,7 +87,7 @@ const NavDrawer = ({ open, onClose }) => {
   }, [auth]);
 
   useEffect(() => {
-    // Set the active item based on the current location
+    
     if (location.pathname === '/home') {
       setActiveItem('home');
     } else if (location.pathname === '/dashboard') {
@@ -99,7 +99,7 @@ const NavDrawer = ({ open, onClose }) => {
 
   const handleMenuItemClick = (item) => {
     setActiveItem(item);
-    onClose(); // Close the drawer when a link is clicked
+    onClose(); 
   };
 
   return (

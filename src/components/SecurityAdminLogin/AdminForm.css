@@ -4,11 +4,12 @@ body {
   align-items: center;
   height: 100vh;
   margin: 0;
+  background: rgb(24, 37, 49);
 }
 
 .admin-form-container {
   max-width: 400px;
-  padding: 40px; /* Adjusted padding */
+  padding: 25px; 
   background-color: #f9f9f9;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -17,7 +18,7 @@ body {
 
 .admin-form-container h2 {
   margin-bottom: 20px;
-  font-size: 32px; /* Adjusted font size */
+  font-size: 32px; 
   color: #333;
 }
 
@@ -27,38 +28,38 @@ body {
 }
 
 .form-group {
-  margin-bottom: 20px; /* Adjusted margin */
+  margin-bottom: 5px; 
 }
 
 .form-group label {
-  font-size: 18px; /* Adjusted font size */
+  font-size: 18px; 
   font-weight: bold;
   color: #000;
   display: block;
-  margin-bottom: 10px; /* Adjusted margin */
+  margin-bottom: 10px; 
 }
 
 .form-group input {
-  padding: 15px; /* Adjusted padding */
+  padding: 15px; 
   border: 1px solid #ccc;
   border-radius: 5px;
   width: 100%;
-  font-size: 18px; /* Adjusted font size */
+  font-size: 18px; 
 }
 
 .admin-form button {
-  padding: 20px 40px; /* Adjusted padding */
-  background-color: #ffa500;
+  padding: 20px 40px;
+  background-color: #f97316;
   color: #fff;
   border: none;
   border-radius: 5px;
-  font-size: 20px; /* Adjusted font size */
+  font-size: 20px; 
   cursor: pointer;
   margin-top: 10px;
 }
 
 .admin-form button:hover {
-  background-color: #ff7c00;
+  background-color: #05454d;
 }
 
 .admin-form button:disabled {

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './LoginSecurityAdmin.css';
-import logoImage from '../../assets/welcome.png';
+import logoImage from '../../assets/logo1.jpg';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
-import AdminForm from './AdminForm'; // Update the import path for AdminForm
+import AdminForm from './AdminForm'; 
 
 const LoginSecurityAdmin = () => {
   const navigate = useNavigate();
@@ -11,13 +11,13 @@ const LoginSecurityAdmin = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const auth = getAuth(); // Get the auth instance
+  const auth = getAuth(); 
 
   const handleLogin = async () => {
     try {
       await signInWithEmailAndPassword(auth, email, password);
 
-      // Redirect to the desired page after login
+     
       navigate('/home');
     } catch (error) {
       console.error('Login failed', error);
@@ -26,13 +26,13 @@ const LoginSecurityAdmin = () => {
   };
 
   const handleSignup = () => {
-    // Redirect to the AdminForm page
+    
     navigate('/signup');
-    toggleSignup(); // Call toggleSignup when "Signup" is clicked
+    toggleSignup(); 
   };
 
   const toggleSignup = () => {
-    setShowSignup((prevShowSignup) => !prevShowSignup); // Toggle the showSignup state
+    setShowSignup((prevShowSignup) => !prevShowSignup); 
   };
 
   return (
@@ -67,7 +67,7 @@ const LoginSecurityAdmin = () => {
           <p style={{ marginRight: '5px', color: 'black' }}>You don't have an account?</p>
           <button
             onClick={handleSignup}
-            style={{ color: '#ffa500', fontWeight: 'bold' }} // Set the text color to orange
+            style={{ color: '#810551', fontWeight: 'bold' }} 
           >
             Signup
           </button>

@@ -31,15 +31,13 @@ html {
 }
 body {
     font-family: 'Poppins', sans-serif;
-    background: var(--color-bg); 
-    line-height: 1.7;
+    line-height: 2;
     color: var(--color-white);
 }
 
 /* ========== GENERAL STYLES ========== */
 .container {
-    width: 100%; /* Adjusted to 100% to ensure it fits within the body padding */
-    max-width: var(--container-width-lg); /* Added max-width for larger screens */
+    width: 100%; 
     margin: 0 auto;
 }
 

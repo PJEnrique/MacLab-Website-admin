@@ -13,7 +13,7 @@ const Home = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://192.168.100.14:3600/attendance/get2');
+        const response = await axios.get('http://192.168.100.36:3900/attendance/get2');
         console.log('Response from server:', response.data);
         setAttendanceRecords(response.data);
       } catch (error) {
@@ -23,7 +23,7 @@ const Home = () => {
 
     const fetchImacData = async () => {
       try {
-        const response = await axios.get('http://192.168.100.14:3600/mac/macData');
+        const response = await axios.get('http://192.168.100.36:3900/mac/macData');
         console.log('IMAC Data:', response.data);
         setImacData(response.data);
       } catch (error) {
@@ -39,12 +39,12 @@ const Home = () => {
     <div className="home-container">
       <div className="menu-icon-container">
         <IconButton onClick={() => setDrawerOpen(!drawerOpen)}>
-          <MenuIcon style={{ color: '#ffa500' }} />
+          <MenuIcon style={{ color: '#fff' }} />
         </IconButton>
       </div>
       <NavDrawer open={drawerOpen} onClose={() => setDrawerOpen(false)} />
-      <h2>Attendance Records</h2>
-      <div className="attendance-table-container">
+      <h1>Attendance Records:</h1>
+   
         <div className="attendance-table">
           <table>
             <thead>
@@ -69,30 +69,36 @@ const Home = () => {
             </tbody>
           </table>
         </div>
-      </div>
-        <h2>IMAC Data</h2>
-      <div className="imac-data">
-        <table>
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Active</th>
-              <th>Timer</th>
-              <th>Identifier</th>
-            </tr>
-          </thead>
-          <tbody>
-            {imacData.map((item) => (
-              <tr key={item.id}>
-                <td>{item.id}</td>
-                <td>{item.active ? 'True' : 'False'}</td>
-                <td>{item.timer}</td>
-                <td>{item.identifier}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+      
+        <h2>IMAC Entry record:</h2>
+<div className="imac-data">
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Active</th>
+        <th>Timer</th>
+        <th>Identifier</th>
+        <th>Name</th>
+        <th>Student Number</th>
+        <th>Activation Date/Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      {imacData.map((item) => (
+        <tr key={item.id}>
+          <td>{item.id}</td>
+          <td>{item.active ? 'True' : 'False'}</td>
+          <td>{item.timer}</td>
+          <td>{item.identifier}</td>
+          <td>{item.name}</td>  
+          <td>{item.studentNumber}</td>  
+          <td>{item.activationDateTime}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
     </div>
   );
 };

@@ -12,7 +12,7 @@ const Dashboard = () => {
   const chartRef = useRef(null);
 
   useEffect(() => {
-    // Fetch user data from Firestore
+    
     const fetchUserData = async () => {
       const db = getFirestore();
       const usersCollection = collection(db, 'users');
@@ -24,16 +24,16 @@ const Dashboard = () => {
     fetchUserData();
   }, []);
 
-  // Calculate the number of users
+ 
   const numUsers = users.length;
 
-  // Count the number of users per department
+  
   const departmentCounts = users.reduce((acc, user) => {
     acc[user.department] = (acc[user.department] || 0) + 1;
     return acc;
   }, {});
 
-  // Count the number of users per yearGrade
+  
   const yearGradeCounts = users.reduce((acc, user) => {
     acc[user.yearGrade] = (acc[user.yearGrade] || 0) + 1;
     return acc;
@@ -43,9 +43,9 @@ const Dashboard = () => {
     if (chartRef.current && chartRef.current.chartInstance) {
       const chart = chartRef.current.chartInstance;
       if (chart.data) {
-        // Labels will be 'Users', 'Remaining', department names, and yearGrade names
+        
         chart.data.labels = ['Users', 'Remaining', ...Object.keys(departmentCounts), ...Object.keys(yearGradeCounts)];
-        // Data will be the counts of 'Users', 'Remaining', department users, and yearGrade users
+        
         chart.data.datasets[0].data = [numUsers, 50 - numUsers, ...Object.values(departmentCounts), ...Object.values(yearGradeCounts)];
         chart.update();
       }
@@ -57,7 +57,7 @@ const Dashboard = () => {
           labels: ['Users', 'Remaining', ...Object.keys(departmentCounts), ...Object.keys(yearGradeCounts)],
           datasets: [{
             data: [numUsers, 50 - numUsers, ...Object.values(departmentCounts), ...Object.values(yearGradeCounts)],
-            backgroundColor: ['#810551', '#ccc', '#ff4500', '#4caf50', '#2196f3', '#e9967a', '#00755e', '#8e3a59', '#836953'],
+            backgroundColor: ['#810551', '#ccc', '#ff4500', '#e9967a', '#00755e', '#8e3a59', '#836953', '#101820FF', '#ff0000'],
           }],
         },
         options: {

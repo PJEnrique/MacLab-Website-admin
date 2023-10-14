@@ -4,7 +4,7 @@ import NavDrawer from './components/navDrawer';
 import Home from './components/Home/Home';
 import LoginSecurityAdmin from './components/SecurityAdminLogin/LoginSecurityAdmin'; 
 import Dashboard from './components/Dashboard/Dashboard';
-import AdminForm from './components/SecurityAdminLogin/AdminForm.js'; // Import the AdminForm component
+import AdminForm from './components/SecurityAdminLogin/AdminForm.js'; 
 import './components/navDrawer.css';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';

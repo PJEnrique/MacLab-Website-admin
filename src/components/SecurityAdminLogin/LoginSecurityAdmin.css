@@ -2,8 +2,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
+  height: 110vh;
   justify-content: center;
+  background: rgb(24, 37, 49);
 }
 
 .logo {
@@ -11,22 +12,23 @@
   flex-direction: column;
   align-items: center;
   margin-bottom: 20px;
+  margin-top: 70px;
 }
 
 .logo img {
-  border: 2px solid #ffa500;
+  border: 2px solid #f97316;
   border-radius: 50px;
   margin-bottom: 2px;
-  max-width: 60%;
+  max-width: 45%;
 }
 
 .login-form {
-  width: 100%; /* Adjust the width as needed */
+  width: 100%; 
   padding: 50px;
   border: 1px solid #ccc;
   border-radius: 30px;
   background-color: #fff;
-  max-width: 500px; /* Optional: set a maximum width */
+  max-width: 500px; 
 }
 
 .login-input-group {
@@ -42,23 +44,23 @@
 
 .login-input {
   width: 100%;
-  padding: 15px; /* Adjust padding for larger input fields */
+  padding: 15px; 
   border: 1px solid #ccc;
   border-radius: 5px;
-  font-size: 18px; /* Adjust the font size */
+  font-size: 18px; 
 }
 
 .login-button {
   width: 100%;
-  padding: 15px; /* Adjust padding for larger button */
-  background-color: #ffa500;
+  padding: 15px; 
+  background-color: #f97316;
   color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 20px; /* Adjust the font size */
+  font-size: 20px;
 }
 
 .login-button:hover {
-  background-color: #f18000;
+  background-color: #05454d;
 }

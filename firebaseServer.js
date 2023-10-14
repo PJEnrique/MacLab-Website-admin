@@ -10,17 +10,17 @@ const AttendanceRoute = require('./routes/AttendanceRoute');
 
 const app = express();
 
-// Initialize Firebase Admin SDK
+
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
 });
 
-// Use CORS middleware
+
 app.use(cors({
-  origin: ['http://192.168.100.14:3000'],
+  origin: ['http://192.168.100.36:3000'],
 }));
 
-// Connect to MongoDB
+
 mongoose.connect(process.env.MONGO_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -32,18 +32,18 @@ db.once('open', () => {
   console.log('Connected to MongoDB Atlas');
 });
 
-// Middleware to log requests
+
 app.use((req, res, next) => {
   console.log(req.path, req.method);
   next();
 });
 
 
-// Use the MAC and Attendance routes
+
 app.use('/mac', MAC);
 app.use('/attendance', AttendanceRoute);
 
-const PORT = process.env.PORT || 3600;
+const PORT = process.env.PORT || 3900;
 
 app.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`);
