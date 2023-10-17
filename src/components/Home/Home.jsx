@@ -13,7 +13,7 @@ const Home = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://192.168.100.36:3900/attendance/get2');
+        const response = await axios.get('http://192.168.116.181:3900/attendance/get2');
         console.log('Response from server:', response.data);
         setAttendanceRecords(response.data);
       } catch (error) {
@@ -23,7 +23,7 @@ const Home = () => {
 
     const fetchImacData = async () => {
       try {
-        const response = await axios.get('http://192.168.100.36:3900/mac/macData');
+        const response = await axios.get('http://192.168.116.181:3900/mac/macData');
         console.log('IMAC Data:', response.data);
         setImacData(response.data);
       } catch (error) {

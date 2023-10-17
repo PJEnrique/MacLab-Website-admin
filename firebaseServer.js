@@ -17,7 +17,7 @@ admin.initializeApp({
 
 
 app.use(cors({
-  origin: ['http://192.168.100.36:3000'],
+  origin: ['http://192.168.116.181:3000'],
 }));
 
 
